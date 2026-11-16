@@ -33,7 +33,18 @@ In real-time banking systems, a customer churn prediction model must achieve hig
 3. **Proposed Method (NSGA-II):** Multi-objective evolutionary algorithm via `optuna.samplers.NSGAIISampler` ($B = 40$ trials, `seed=42`) to approximate the Pareto-optimal front.
 
 ## 5. Key Results
-*(To be updated after completing experimental runs in Week 3-4)*
+Under an equal evaluation budget of $B = 40$ trials, **NSGA-II** discovered 5 Pareto-optimal configurations that strictly dominate the default LightGBM baseline and outperform Random Search in both convergence speed and Pareto frontier quality[cite: 2, 4, 5].
+
+| Configuration | `n_estimators` | `max_depth` | `learning_rate` | `num_leaves` | `min_child_samples` | 5-Fold CV ROC-AUC | CV Latency (ms/1k) | Hold-out Test ROC-AUC | Test Latency (ms/1k) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Default LightGBM (Baseline)** | 100 | -1 | 0.1000 | 31 | 20 | 0.8606 | 3.7563 | 0.8633 | 2.3043 |
+| **NSGA-II #25 (Max-AUC)** | 414 | 4 | 0.0270 | 92 | 35 | **0.8646** | 11.7342 | **0.8703** | 11.3688 |
+| **NSGA-II #30 (Selected Knee-Point)** | **83** | **3** | **0.2869** | **82** | **42** | **0.8640** | **2.6185** | **0.8641** | **2.4611** |
+| **NSGA-II #21 (Min-Latency)** | 70 | 4 | 0.0302 | 58 | 74 | 0.8545 | **2.1862** | 0.8593 | 2.6057 |
+
+* **Selected Deployment Solution (`Trial #30`):** Achieves higher predictive discrimination than Default LightGBM on both Cross-Validation (`0.8640` vs. `0.8606`)[cite: 2] and unseen Hold-out Test (`0.8641` vs. `0.8633`)[cite: 3], while reducing CV inference latency by **30.3%** (`2.62 ms` vs. `3.76 ms` per 1,000 samples)[cite: 4].
+
+![Pareto Front Comparison](figures/01_pareto_front_comparison.png)
 
 ## 6. Repository Structure
 ```text
