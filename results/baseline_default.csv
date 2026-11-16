@@ -1,0 +1,2 @@
+method,trial,n_estimators,max_depth,learning_rate,num_leaves,min_child_samples,cv_roc_auc,cv_latency_ms_per_1k
+Default_LightGBM,0,100,-1,0.1,31,20,0.8606468684689542,3.7562875004368834

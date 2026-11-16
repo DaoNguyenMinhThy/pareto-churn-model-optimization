@@ -46,3 +46,16 @@ pareto-churn-model-optimization/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
+
+## 7. How to Run
+```bash
+git clone [https://github.com/DaoNguyenMinhThy/pareto-churn-model-optimization.git](https://github.com/DaoNguyenMinhThy/pareto-churn-model-optimization.git)
+cd pareto-churn-model-optimization
+pip install -r requirements.txt
+jupyter notebook notebooks/01_pareto_optimization.ipynb
+```
+
+## 8. Limitations & AI Assistance
+* Inference latency measurements depend on local CPU load (mitigated using median over 50-100 repeated inference passes).
+* **AI Assistance Disclosure:** Gemini was used to assist in structuring the repository documentation and experiment templates; all mathematical formulations, optimization code, and experimental validations were verified and executed by the author.
