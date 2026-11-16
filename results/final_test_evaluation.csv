@@ -1,0 +1,5 @@
+Configuration,n_estimators,max_depth,learning_rate,num_leaves,min_child_samples,Holdout_Test_ROC_AUC,Holdout_Test_Latency_ms_per_1k
+Default LightGBM,100,-1,0.1,31,20,0.8633,2.3043
+NSGA-II #25 (Max-AUC),414,4,0.027,92,35,0.8703,11.3688
+NSGA-II #30 (Knee-Point / Selected),83,3,0.2869,82,42,0.8641,2.4611
+NSGA-II #21 (Min-Latency),70,4,0.0302,58,74,0.8593,2.6057
